@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { StoreWrapper } from "./store/store-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StoreWrapper>
+          <main className="flex min-h-screen font-mono flex-col items-center justify-start bg-gradient-to-br from-sky-500 via-purple-500 to-orange-500 animate-bg-animate">
+            <h1 className="shadow-xl bg-purple-800/15 rounded-3xl flex justify-center p-6 m-6 text-5xl font-mono font-bold text-white z-10">{`<PokEmerson 🐣/>`}</h1>
+            {children}
+          </main>
+        </StoreWrapper>
+      </body>
     </html>
   );
 }
