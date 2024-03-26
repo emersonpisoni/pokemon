@@ -1,7 +1,7 @@
 'use client'
 
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { setupStore } from "./store";
 import { ReactNode } from "react";
 
 type StoreWrapperProps = {
@@ -9,5 +9,5 @@ type StoreWrapperProps = {
 }
 
 export function StoreWrapper({ children }: StoreWrapperProps) {
-  return <Provider store={store}>{children}</Provider>
+  return <Provider store={setupStore()}>{children}</Provider>
 }

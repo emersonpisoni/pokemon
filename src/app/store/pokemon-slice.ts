@@ -66,8 +66,6 @@ const initialState: PokemonState = {
   currentPokemon: initialStateCurrentPokemon
 }
 
-
-
 export const fetchPokemons = createAsyncThunk('getPokemons', getPokemons)
 export const fetchPokemonByName = createAsyncThunk('getPokemonByName', getPokemonByName)
 
@@ -82,12 +80,11 @@ export const pokemonSlice = createSlice({
       state.next = payload.next
       state.previous = payload.previous
     })
-    builder.addCase(fetchPokemonByName.pending, (state, { payload }) => {
+    builder.addCase(fetchPokemonByName.pending, state => {
       state.currentPokemon = initialStateCurrentPokemon
     })
     builder.addCase(fetchPokemonByName.fulfilled, (state, { payload }) => {
       state.currentPokemon = payload
-
     })
   },
 })

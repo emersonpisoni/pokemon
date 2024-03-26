@@ -5,7 +5,6 @@ import { fetchPokemons } from "./store/pokemon-slice";
 import { AppDispatch } from "./store/store";
 import PokemonList from "../components/ui/pokemon-list";
 import { useEffect } from "react";
-import Image from "next/image";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>()
